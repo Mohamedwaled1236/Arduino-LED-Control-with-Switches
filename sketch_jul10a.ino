@@ -1,37 +1,61 @@
+int red=13;
+int yellow=12;
+int green=11;
+int orange=10;
+int white=9;
+int blue=8;
+int reading=0;
 
 
-
-
-int led =10;
-int button = 11;
-int reading;
-int counter=0;
-
-
-void setup(){
-for (int i=8;i<=10;i++)  
-pinMode(i,OUTPUT);
-pinMode(11,1);
-
-
+void setup()
+{ 
+  pinMode(13,OUTPUT); 
+  pinMode(12, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(6,INPUT);
+  pinMode(7,INPUT);
 }
 
-
-void loop (){
-  if (digitalRead(11)==1){
-    counter++;
-    if(counter==1)
-    digitalWrite(8,HIGH);
-    else if (counter==2)
-      digitalWrite(9,HIGH);
-      else if (counter==3)
-      digitalWrite(10,HIGH);
-      else{
-      for (int i=10;i>=8;i--)
-        digitalWrite(i,0);
-      counter=0;
-    }
-    delay (250);
-  }
+void loop()
+{
+ if (digitalRead(5)==HIGH){
+    analogWrite(13,1);
+    digitalWrite(12,255);     
+    digitalWrite(13,255); 
+ }
   
+    else{
+      analogWrite(13,0);
+     digitalWrite(12,0);
+      
+    }
+    
+    if(digitalRead(6)==HIGH){
+      digitalWrite(11,1);
+      analogWrite(10,255);
+    }
+    
+    else{
+      digitalWrite(11,0);
+      analogWrite(10,0);
+      
+      
+        if(digitalRead(5)==HIGH){
+      digitalWrite(9,1);
+      analogWrite(8,255);
+    } 
+      
+        else{
+      digitalWrite(9,0);
+      analogWrite(8,0);
+      
+    }
 }
+}
+  
+
+
+   
